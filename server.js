@@ -14,16 +14,30 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 //4: Routing code
-// app.get("/", function (req, res) {
-//   res.end(`<h1>HELLO WORLD by Alex</h1>`);
+// app.get("/today", function (req, res) {
+//   res.end(`<h1>Today is cold</h1>`);
 // });
 
-app.get("/today", function (req, res) {
-  res.end(`<h1>Today is cold</h1>`);
+// app.get("/me", function (req, res) {
+//   res.end(`<h1>It's me by Alex</h1>`);
+// });
+
+// app.post("/create-item", (req, res) => {
+//   console.log(req);
+//   res.json({ test: "succes" });
+// });
+
+app.post("/create-item", (req, res) => {
+  console.log(req.body);
+  res.json({ test: "succes" });
 });
 
-app.get("/me", function (req, res) {
-  res.end(`<h1>It's me by Alex</h1>`);
+// app.post("/create-item", (req, res) => {
+//   // TODO: code with db
+// });
+
+app.get("/", function (req, res) {
+  res.render("harid");
 });
 
 const server = http.createServer(app);
