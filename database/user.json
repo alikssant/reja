@@ -1,9 +1,9 @@
 {
-  "name": "Steve",
+  "name": "Alex",
   "profession": "Software Engineer",
-  "age": 20,
+  "age": 24,
   "residence": "S.Korea",
-  "adress": "S.Korea, Busan",
+  "adress": "S.Korea, Seoul",
   "languages": ["Uzbek", "Korean", "English"],
   "skills": ["HTML", "CSS", "JS", "NodeJS", "Python"],
   "extra_skills": ["Bootstrap", "Materialize", "Styling", "Sass", "Django", "Flask", "GIT Knowledge"],
