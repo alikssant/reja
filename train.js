@@ -1,4 +1,33 @@
-console.log("Jack Ma maslahatlari");
+// A-TASK:
+// Shunday 2 parametrli function tuzing,
+//  hamda birinchi parametrdagi letterni ikkinchi
+//  parametrdagi sozdan qatnashga sonini return
+// qilishi kerak boladi.
+// MASALAN countLetter("e", "engineer") 3ni return qiladi.
+
+//Yechim
+
+function countLetter(first_param, second_param) {
+  let count = 0;
+  second_param = second_param.toLowerCase();
+  first_param = first_param.toLowerCase();
+
+  for (let i = 0; i < second_param.length; i++) {
+    if (second_param[i] === first_param) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+// Example:
+console.log("Example #1: ", countLetter("e", "engineer"));
+console.log("Example #2: ", countLetter("u", "bugun"));
+console.log("Example #3: ", countLetter("I", "MIT"));
+console.log("Example #4: ", countLetter("m", "recommend"));
+
+//console.log("Jack Ma maslahatlari");
 
 const list = [
   "yahshi talaba boling", //0-20
