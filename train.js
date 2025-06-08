@@ -1,19 +1,26 @@
-// A-TASK:
-// Shunday 2 parametrli function tuzing,
-//  hamda birinchi parametrdagi letterni ikkinchi
-//  parametrdagi sozdan qatnashga sonini return
-// qilishi kerak boladi.
-// MASALAN countLetter("e", "engineer") 3ni return qiladi.
+// B-TASK:
+
+//Shunday function tuzing, u 1ta string parametrga ega bolsin,
+//  hamda osha stringda qatnashgan
+//  raqamlarni sonini bizga return qilsin.
+//MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
 
 //Yechim
-
-function countLetter(first_param, second_param) {
+function countDigits(string_param) {
   let count = 0;
-  second_param = second_param.toLowerCase();
-  first_param = first_param.toLowerCase();
-
-  for (let i = 0; i < second_param.length; i++) {
-    if (second_param[i] === first_param) {
+  for (let i = 0; i < string_param.length; i++) {
+    if (
+      string_param[i] === "0" ||
+      string_param[i] === "1" ||
+      string_param[i] === "2" ||
+      string_param[i] === "3" ||
+      string_param[i] === "4" ||
+      string_param[i] === "5" ||
+      string_param[i] === "6" ||
+      string_param[i] === "7" ||
+      string_param[i] === "8" ||
+      string_param[i] === "9"
+    ) {
       count++;
     }
   }
@@ -22,10 +29,7 @@ function countLetter(first_param, second_param) {
 }
 
 // Example:
-console.log("Example #1: ", countLetter("e", "engineer"));
-console.log("Example #2: ", countLetter("u", "bugun"));
-console.log("Example #3: ", countLetter("I", "MIT"));
-console.log("Example #4: ", countLetter("m", "recommend"));
+console.log(countDigits("ad2a54y79wet0sfgb9"));
 
 //console.log("Jack Ma maslahatlari");
 
