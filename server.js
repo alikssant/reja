@@ -1,8 +1,7 @@
 const http = require("http");
 
 const mongodb = require("mongodb");
-const { toUnicode } = require("punycode");
-let db;
+
 const connectionString =
   "mongodb+srv://maliksant33:WaWa5rpH5mr2QP6l@cluster0.lput7u2.mongodb.net/";
 
