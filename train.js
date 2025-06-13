@@ -1,35 +1,72 @@
-// B-TASK:
+// TASK-C
 
-//Shunday function tuzing, u 1ta string parametrga ega bolsin,
-//  hamda osha stringda qatnashgan
-//  raqamlarni sonini bizga return qilsin.
-//MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
+// Shop nomli class tuzing, va bu class 3 xill parametr qabul qilsin.
+// Hamda classning quyidagdek 3'ta metodi bo'lsin:
 
-//Yechim
-function countDigits(string_param) {
-  let count = 0;
-  for (let i = 0; i < string_param.length; i++) {
-    if (
-      string_param[i] === "0" ||
-      string_param[i] === "1" ||
-      string_param[i] === "2" ||
-      string_param[i] === "3" ||
-      string_param[i] === "4" ||
-      string_param[i] === "5" ||
-      string_param[i] === "6" ||
-      string_param[i] === "7" ||
-      string_param[i] === "8" ||
-      string_param[i] === "9"
-    ) {
-      count++;
-    }
+// 1) qoldiq
+// 2) sotish
+// 3) qabul
+
+// Har bir metod ishga tushgan vaqtda log qilinsin
+// MASALAN:
+// const shop = new Shop(4, 5, 2)
+// shop.qoldiq();
+// natija qaytishi kerak: Hozir 20: 40'da 4'ta non, 5'ta lag'mon va 2'ta cola mavjud
+// shop.sotish("non", 3); & shop.qabul("cola", 4); & shop.qoldiq();
+// Natija qaytishi kerak: Hozir 20:50da 1ta non, 5ta lag'mon va 6ta cola mavjud!
+
+// Yechim
+class Shop {
+  constructor(non, lagmon, cola) {
+    this.non = non;
+    this.lagmon = lagmon;
+    this.cola = cola;
   }
 
-  return count;
+  getCurrentTime() {
+    const now = new Date();
+    const hour = ("0" + now.getHours()).slice(-2);
+    const minute = ("0" + now.getMinutes()).slice(-2);
+    return `${hour}:${minute}`;
+  }
+  qoldiq() {
+    const time = this.getCurrentTime();
+    console.log(
+      `Hozir ${time}da ${this.non}ta non, ${this.lagmon}ta lag'mon va ${this.cola}ta cola mavjud`
+    );
+  }
+  sotish(mahsulot, soni) {
+    if (this[mahsulot] === undefined) {
+      console.log(`Bunday mahsulot mavjud emas: ${mahsulot}`);
+      return;
+    }
+    if (this[mahsulot] < soni) {
+      console.log(`Kechirasiz, yetarli ${mahsulot} yo'q`);
+      return;
+    }
+
+    this[mahsulot] -= soni;
+    const time = this.getCurrentTime();
+    console.log(`Hozir ${time}da ${soni}ta ${mahsulot} sotildi`);
+  }
+  qabul(mahsulot, soni) {
+    if (this[mahsulot] === undefined) {
+      console.log(`Bunday mahsulot mavjud emas: ${mahsulot}`);
+      return;
+    }
+
+    this[mahsulot] += soni;
+    const time = this.getCurrentTime();
+    console.log(`Hozir ${time}da ${soni}ta ${mahsulot} qabul qilindi`);
+  }
 }
 
-// Example:
-console.log(countDigits("ad2a54y79wet0sfgb9"));
+// Misol:
+const shop = new Shop(4, 5, 2);
+shop.qoldiq();
+shop.sotish("non", 3);
+shop.qabul("cola", 4);
+shop.qoldiq();
 
 //console.log("Jack Ma maslahatlari");
 
