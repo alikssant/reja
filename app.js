@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const http = require("http");
 const fs = require("fs");
+const mongoDB = require("mongodb");
 
 let user;
 fs.readFile("database/user.json", "utf-8", (err, data) => {
@@ -40,6 +41,15 @@ app.post("/create-item", (req, res) => {
   });
 });
 
+app.post("/delete-item", (req, res) => {
+  const id = req.body.id;
+  db.collection("plans").deleteOne(
+    { _id: new mongoDB.ObjectId(id) },
+    function (err, data) {
+      res.json({ state: "success" });
+    }
+  );
+});
 app.get("/", function (req, res) {
   console.log("user entered /");
   db.collection("plans")

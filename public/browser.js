@@ -1,3 +1,5 @@
+//const { response } = require("express");
+
 console.log("Fronted JS ishga tushdi");
 
 function itemTemplate(item) {
@@ -40,4 +42,25 @@ document.getElementById("create-form").addEventListener("submit", function (e) {
     .catch((err) => {
       console.log("Iltimos qaytadan harakat qiling");
     });
+});
+
+document.addEventListener("click", function (e) {
+  //delete
+  if (e.target.classList.contains("delete-me")) {
+    if (confirm("Aniq ochirmoqchimisiz?")) {
+      axios
+        .post("/delete-item", { id: e.target.getAttribute("data-id") })
+        .then((respose) => {
+          console.log(respose.data);
+          e.target.parentElement.parentElement.remove();
+        })
+        .catch((err) => {
+          console.log("Iltimos qaytadan harakat qiling");
+        });
+    }
+  }
+  //edit
+  if (e.target.classList.contains("edit-me")) {
+    alert("siz edit tugmasini bosdingiz");
+  }
 });
