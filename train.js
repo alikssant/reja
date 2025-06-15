@@ -1,72 +1,36 @@
-// TASK-C
+// TASK D
 
-// Shop nomli class tuzing, va bu class 3 xill parametr qabul qilsin.
-// Hamda classning quyidagdek 3'ta metodi bo'lsin:
+// Ikkita parametra ega function tuzing,
+// va functioning
+// berilgan birinchi va ikkinchi parametr
+// qiymatlari o'zaro to'liq
+// mos kelsa true qiymat qaytarsin
 
-// 1) qoldiq
-// 2) sotish
-// 3) qabul
+// Masalan: checkContent("mitgroup", "gmtiprou");
+// Yuqoridagi misolda birinchi va ikkinchi parametr
+// qiymatli bir xil
+// ya'ni bir xil harflar qatnashganligi
+//  uchun true qiymat qaytaradi.
 
-// Har bir metod ishga tushgan vaqtda log qilinsin
-// MASALAN:
-// const shop = new Shop(4, 5, 2)
-// shop.qoldiq();
-// natija qaytishi kerak: Hozir 20: 40'da 4'ta non, 5'ta lag'mon va 2'ta cola mavjud
-// shop.sotish("non", 3); & shop.qabul("cola", 4); & shop.qoldiq();
-// Natija qaytishi kerak: Hozir 20:50da 1ta non, 5ta lag'mon va 6ta cola mavjud!
+//Yechim
 
-// Yechim
-class Shop {
-  constructor(non, lagmon, cola) {
-    this.non = non;
-    this.lagmon = lagmon;
-    this.cola = cola;
-  }
-
-  getCurrentTime() {
-    const now = new Date();
-    const hour = ("0" + now.getHours()).slice(-2);
-    const minute = ("0" + now.getMinutes()).slice(-2);
-    return `${hour}:${minute}`;
-  }
-  qoldiq() {
-    const time = this.getCurrentTime();
-    console.log(
-      `Hozir ${time}da ${this.non}ta non, ${this.lagmon}ta lag'mon va ${this.cola}ta cola mavjud`
-    );
-  }
-  sotish(mahsulot, soni) {
-    if (this[mahsulot] === undefined) {
-      console.log(`Bunday mahsulot mavjud emas: ${mahsulot}`);
-      return;
-    }
-    if (this[mahsulot] < soni) {
-      console.log(`Kechirasiz, yetarli ${mahsulot} yo'q`);
-      return;
-    }
-
-    this[mahsulot] -= soni;
-    const time = this.getCurrentTime();
-    console.log(`Hozir ${time}da ${soni}ta ${mahsulot} sotildi`);
-  }
-  qabul(mahsulot, soni) {
-    if (this[mahsulot] === undefined) {
-      console.log(`Bunday mahsulot mavjud emas: ${mahsulot}`);
-      return;
-    }
-
-    this[mahsulot] += soni;
-    const time = this.getCurrentTime();
-    console.log(`Hozir ${time}da ${soni}ta ${mahsulot} qabul qilindi`);
+function checkContent(word1, word2) {
+  const newWord = [...word1];
+  newWord.sort();
+  const newWord2 = [...word2];
+  newWord2.sort();
+  const sortedWord1 = newWord.join(""); // string qilamiz
+  const sortedWord2 = newWord2.join(""); // string qilamiz
+  if (sortedWord1 === sortedWord2) {
+    return true;
+  } else {
+    return false;
   }
 }
-
-// Misol:
-const shop = new Shop(4, 5, 2);
-shop.qoldiq();
-shop.sotish("non", 3);
-shop.qabul("cola", 4);
-shop.qoldiq();
+console.log("Example 1:", checkContent("mitgroup", "gmtiprou"));
+console.log("Example 2:", checkContent("abc", "cab"));
+console.log("Example 3:", checkContent("hello", "world"));
+console.log("Example 4:", checkContent("aabc", "abcc"));
 
 //console.log("Jack Ma maslahatlari");
 
